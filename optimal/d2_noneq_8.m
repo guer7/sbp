@@ -1,5 +1,4 @@
 function [H, HI, D1, D2, M, Q, e_1, e_m, S_1, S_m, x, h] = d2_noneq_8(N,L,narrowing)
-
 % N: Number of grid points
 % L: Domain length
 % narrowing: Width of internal stencil in D2
@@ -45,7 +44,6 @@ x = h*[xb; linspace(xb(end)+1,L/h-xb(end)-1,N-2*(m+1))'; L/h-flip(xb) ];
 
 %%%% Norm matrix %%%%%%%%
 P = zeros(BP,1);
-%#ok<*NASGU>
 P0 =  1.0758368078310e-01;
 P1 =  6.1909685107891e-01;
 P2 =  9.6971176519117e-01;
@@ -67,7 +65,6 @@ HI = inv(H);
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% Q matrix %%%%%%%%%%%
-
 % interior stencil
 switch order
     case 2
@@ -244,20 +241,3 @@ end
 
 %%%% Difference operator D2 %%
 D2 = H\(-M + BS);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
